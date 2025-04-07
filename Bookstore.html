@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessing File Explorer</title>
+</head>
+<body>
+
+    <h2>Looking for a file? Click Below.
+    </h2>
+
+    <!-- Button to trigger file explorer -->
+    <button id="open-file-button">Choose a file</button>
+
+    <!-- File input (hidden) -->
+    <input type="file" id="file-input" style="display:none;" />
+
+    <script>
+        // Get references to the button and file input
+        const openFileButton = document.getElementById('open-file-button');
+        const fileInput = document.getElementById('file-input');
+
+        // When the button is clicked, trigger the file input
+        openFileButton.addEventListener('click', () => {
+            fileInput.click(); // Simulate click to open file explorer
+        });
+
+        // Listen for file selection
+        fileInput.addEventListener('change', () => {
+            const fileName = fileInput.files[0] ? fileInput.files[0].name : 'No file selected';
+            alert('File selected: ' + fileName);
+        });
+    </script>
+
+</body>
+</html>
